@@ -20,7 +20,9 @@ spec:
       displayName: Public API Key
       type: string
       required: true
+      helpText: publicApiKey helpText supplied from Crunchy
     - key: privateApiSecret
       displayName: Private API Secret
       type: maskedstring
       required: true
+      helpText: privateApiSecret helpText supplied from Crunchy
