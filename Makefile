@@ -35,7 +35,7 @@ export OPERATOR_CONDITION_NAME=crunchy-bridge-operator.v$(VERSION)
 #
 # For example, running 'make bundle-build bundle-push catalog-build catalog-push' will build and push both
 # crunchydata.com/crunchy-bridge-operator-bundle:$VERSION and crunchydata.com/crunchy-bridge-operator-catalog:$VERSION.
-IMAGE_TAG_BASE ?= quay.io/${ORG}/crunchy-bridge-operator
+IMAGE_TAG_BASE ?= quay.io/olavtar/crunchy-bridge-operator
 
 # BUNDLE_IMG defines the image:tag used for the bundle.
 # You can use it as an arg. (E.g make bundle-build BUNDLE_IMG=<some-registry>/<project-name-bundle>:<tag>)
@@ -143,6 +143,7 @@ catalog-update:
 	oc apply -f config/samples/catalog-source.yaml
 
 CONTROLLER_GEN = $(shell pwd)/bin/controller-gen
+oc login --token=sha256~Iil4QUzsNU0KYdCNkDEAwAtxc-UYnc0lpjOz2rOxU88 --server=https://api.rhoda-sp-prod.lue0.p1.openshiftapps.com:6443
 controller-gen: ## Download controller-gen locally if necessary.
 	$(call go-get-tool,$(CONTROLLER_GEN),sigs.k8s.io/controller-tools/cmd/controller-gen@v0.4.1)
 
