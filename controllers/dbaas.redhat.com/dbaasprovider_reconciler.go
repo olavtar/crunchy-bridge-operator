@@ -64,6 +64,7 @@ const (
 	DBAASPROVIDERKIND      = "DBaaSProvider"
 	PROVISION_DOC_URL      = "https://docs.crunchybridge.com/quickstart/provision"
 	PROVISION_DESCRIPTION  = "Crunchy Bridge by Crunchy Data offers free trial instances through RHODA. To provision a trial instance, provision through RHODA using default parameters or specify the plan as 'trial'. For further information on provisioning paid instances via the Crunchy Bridge platform, please refer to our provisioning documentation."
+	PUBLICAPIFIELDHELPTEXT = "Public API Help Text Supplied by Chunchy"
 )
 
 var labels = map[string]string{RELATEDTOLABELNAME: RELATEDTOLABELVALUE, TYPELABELNAME: TYPELABELVALUE}
@@ -197,12 +198,14 @@ func bridgeProviderCR(clusterRoleList *rbac.ClusterRoleList) *dbaasoperator.DBaa
 					DisplayName: KEYFIELDDISPLAYNAME,
 					Type:        "string",
 					Required:    true,
+					HelpText:    PUBLICAPIFIELDHELPTEXT,
 				},
 				{
 					Key:         SECRETFIELDNAME,
 					DisplayName: SECRETFIELDDISPLAYNAME,
 					Type:        "maskedstring",
 					Required:    true,
+					HelpText:    PUBLICAPIFIELDHELPTEXT,
 				},
 			},
 			AllowsFreeTrial:              true,
